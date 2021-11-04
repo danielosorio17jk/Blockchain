@@ -2,4 +2,8 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:10840/Blockchain/ServiceBlockchain?wsdl" uri="src/conf/xml-resources/web-service-references/ServiceBlockchain/wsdl/localhost_10840/Blockchain/ServiceBlockchain.wsdl"/>
     <system systemId="http://localhost:10840/Blockchain/ServiceBlockchain?xsd=1" uri="src/conf/xml-resources/web-service-references/ServiceBlockchain/wsdl/localhost_10840/Blockchain/ServiceBlockchain.xsd_1.xsd"/>
+    <system systemId="http://localhost:10840/Register/ServiceRegister?wsdl" uri="src/conf/xml-resources/web-service-references/ServiceRegister/wsdl/localhost_10840/Register/ServiceRegister.wsdl"/>
+    <system systemId="http://localhost:10840/Register/ServiceRegister?xsd=1" uri="src/conf/xml-resources/web-service-references/ServiceRegister/wsdl/localhost_10840/Register/ServiceRegister.xsd_1.xsd"/>
+    <system systemId="http://localhost:10840/OpenCloser/ServiceOpenCloser?wsdl" uri="src/conf/xml-resources/web-service-references/ServiceOpenCloser/wsdl/localhost_10840/OpenCloser/ServiceOpenCloser.wsdl"/>
+    <system systemId="http://localhost:10840/OpenCloser/ServiceOpenCloser?xsd=1" uri="src/conf/xml-resources/web-service-references/ServiceOpenCloser/wsdl/localhost_10840/OpenCloser/ServiceOpenCloser.xsd_1.xsd"/>
 </catalog>

@@ -5,7 +5,7 @@
  */
 package com.uniminuto.register;
 
-import java.util.Date;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  *
@@ -15,19 +15,19 @@ public class ValidaRegister {
 
     int contador = 0;
 
-    public boolean validaRegistro(String emisor, String receptor, int valor, Date fecha) {
+    public boolean validaRegistro(String emisor, String receptor, int valor, XMLGregorianCalendar fecha) {
         if (contador > 3) {
             if (emisor.isEmpty() || receptor.isEmpty() || valor == 0) {
-                return false;
+                return true;
             }
         } else {
              if (emisor.isEmpty() ||  valor == 0) {
-                return false;
+                return true;
             }
             contador++;
 
         }
-        return true;
+        return false;
 
     }
 

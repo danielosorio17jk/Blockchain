@@ -10,6 +10,23 @@
                 JAX-WS WSGEN SECTION
                 ===================
             -->
+    <target name="wsgen-init" depends="init, -do-compile">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws/resources/"/>
+        <mkdir dir="${build.classes.dir}"/>
+        <mkdir dir="${build.classes.dir}/META-INF"/>
+        <property name="j2ee.platform.wsgen.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsgen" classname="com.sun.tools.ws.ant.WsGen">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsgen-ServiceCoodinador" depends="wsgen-init">
+        <copy todir="${build.classes.dir}/META-INF">
+            <fileset dir="${webinf.dir}" includes="wsit-com.uniminuto.service.ServiceCoodinador.xml"/>
+        </copy>
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="com.uniminuto.service.ServiceCoodinador" xendorsed="true">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
     <!--
                 ===================
                 JAX-WS WSIMPORT SECTION
@@ -28,7 +45,7 @@
     </target>
     <target name="wsimport-client-ServiceBlockchain" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/ServiceBlockchain"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServiceBlockchain" destdir="${build.generated.dir}/jax-wsCache/ServiceBlockchain" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServiceBlockchain/wsdl/localhost_10840/Blockchain/ServiceBlockchain.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:10840/Blockchain/ServiceBlockchain?wsdl" xnocompile="true" xendorsed="true" package="com.uniminuto.client.blockchain">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServiceBlockchain" destdir="${build.generated.dir}/jax-wsCache/ServiceBlockchain" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServiceBlockchain/wsdl/localhost_10840/Blockchain/ServiceBlockchain.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:10840/Blockchain/ServiceBlockchain?wsdl" xnocompile="true" xendorsed="true" package="com.uniminuto.service.client.blockchain">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServiceBlockchain/wsdl/localhost_10840/Blockchain/ServiceBlockchain.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/ServiceBlockchain"/>
         </wsimport>
@@ -39,8 +56,40 @@
         </copy>
     </target>
     <target name="wsimport-client-clean-ServiceBlockchain" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/uniminuto/client/blockchain"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/uniminuto/service/client/blockchain"/>
         <delete dir="${build.generated.dir}/jax-wsCache/ServiceBlockchain"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-ServiceBlockchain"/>
+    <target name="wsimport-client-ServiceRegister" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServiceRegister"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServiceRegister" destdir="${build.generated.dir}/jax-wsCache/ServiceRegister" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServiceRegister/wsdl/localhost_10840/Register/ServiceRegister.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:10840/Register/ServiceRegister?wsdl" xnocompile="true" xendorsed="true" package="com.uniminuto.service.client.register">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServiceRegister/wsdl/localhost_10840/Register/ServiceRegister.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServiceRegister"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServiceRegister">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServiceRegister" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/uniminuto/service/client/register"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServiceRegister"/>
+    </target>
+    <target name="wsimport-client-ServiceOpenCloser" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServiceOpenCloser"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServiceOpenCloser" destdir="${build.generated.dir}/jax-wsCache/ServiceOpenCloser" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServiceOpenCloser/wsdl/localhost_10840/OpenCloser/ServiceOpenCloser.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:10840/OpenCloser/ServiceOpenCloser?wsdl" xnocompile="true" xendorsed="true" package="com.uniminuto.service.client.opencloser">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServiceOpenCloser/wsdl/localhost_10840/OpenCloser/ServiceOpenCloser.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServiceOpenCloser"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServiceOpenCloser">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServiceOpenCloser" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/uniminuto/service/client/opencloser"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServiceOpenCloser"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ServiceBlockchain, wsimport-client-ServiceRegister, wsimport-client-ServiceOpenCloser"/>
 </project>

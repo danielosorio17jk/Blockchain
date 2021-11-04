@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://service.uniminuto.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.uniminuto.com/">
+
+<xs:element name="iConsultarDir" type="tns:iConsultarDir"/>
+
+<xs:element name="iConsultarDirResponse" type="tns:iConsultarDirResponse"/>
+
+<xs:element name="iCrearBloque" type="tns:iCrearBloque"/>
+
+<xs:element name="iCrearBloqueResponse" type="tns:iCrearBloqueResponse"/>
+
+<xs:element name="iRegistrarData" type="tns:iRegistrarData"/>
+
+<xs:element name="iRegistrarDataResponse" type="tns:iRegistrarDataResponse"/>
+
+<xs:complexType name="iCrearBloque">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="iCrearBloqueResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="iRegistrarData">
+<xs:sequence>
+<xs:element name="emisor" type="xs:string" minOccurs="0"/>
+<xs:element name="receptor" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:int"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="iRegistrarDataResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="iConsultarDir">
+<xs:sequence>
+<xs:element name="emisor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="iConsultarDirResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
-  <services/>
+  <services>
+    <service name="ServiceCoodinador">
+      <implementation-class>com.uniminuto.service.ServiceCoodinador</implementation-class>
+    </service>
+  </services>
   <clients>
     <client name="ServiceBlockchain">
       <wsdl-url>http://localhost:10840/Blockchain/ServiceBlockchain?wsdl</wsdl-url>
       <local-wsdl-file>localhost_10840/Blockchain/ServiceBlockchain.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">com.uniminuto.client.blockchain</package-name>
+      <package-name forceReplace="true">com.uniminuto.service.client.blockchain</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -34,7 +38,79 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>com.uniminuto.client.blockchain</wsimport-option-value>
+          <wsimport-option-value>com.uniminuto.service.client.blockchain</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="ServiceRegister">
+      <wsdl-url>http://localhost:10840/Register/ServiceRegister?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_10840/Register/ServiceRegister.wsdl</local-wsdl-file>
+      <package-name forceReplace="true">com.uniminuto.service.client.register</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:10840/Register/ServiceRegister?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>package</wsimport-option-name>
+          <wsimport-option-value>com.uniminuto.service.client.register</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="ServiceOpenCloser">
+      <wsdl-url>http://localhost:10840/OpenCloser/ServiceOpenCloser?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_10840/OpenCloser/ServiceOpenCloser.wsdl</local-wsdl-file>
+      <package-name forceReplace="true">com.uniminuto.service.client.opencloser</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:10840/OpenCloser/ServiceOpenCloser?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>package</wsimport-option-name>
+          <wsimport-option-value>com.uniminuto.service.client.opencloser</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>
